@@ -1,0 +1,9 @@
+<% content_for :title, "Articles" %>
+
+<h1>Articles</h1>
+
+<div id="articles">
+  <%= render partial: "articles/article", collection: @articles, as: :article, locals: { truncate_content: true } %>
+</div>
+
+<%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>

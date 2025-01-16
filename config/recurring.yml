@@ -1,0 +1,15 @@
+#cualquier_nombre:
+#  class: DoSomethingJob
+#  queue: background
+#  schedule: every 2 second
+
+# production:
+#   periodic_cleanup:
+#     class: CleanSoftDeletedRecordsJob
+#     queue: background
+#     args: [ 1000, { batch_size: 500 } ]
+#     schedule: every hour
+#   periodic_command:
+#     command: "SoftDeletedRecord.due.delete_all"
+#     priority: 2
+#     schedule: at 5am every day

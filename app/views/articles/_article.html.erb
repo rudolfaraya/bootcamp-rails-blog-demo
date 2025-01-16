@@ -1,0 +1,31 @@
+<div id="<%= dom_id article %>" class="article-container">
+  <% if user_signed_in? %>
+    <div class="status-label <%= article.draft? ? 'status-draft' : 'status-published' %>">
+      <%= article.draft? ? '📝 Draft' : '✅ Published' %>
+    </div>
+  <% end %>  
+  <p>
+    <strong>Por:</strong>
+    <%= article.user.email %>
+  </p>
+  <div class="article-title">
+    <h2>
+      <strong>Title:</strong>
+      <%= article.title %>
+    </h2>
+  </div>  
+  <p>
+    <strong>Body:</strong>
+    <% if local_assigns[:truncate_content] %>
+      <%= truncate(article.body.to_plain_text, length: 150) %>
+    <% else %>
+      <%= article.body %>
+    <% end %>
+    <% if local_assigns[:truncate_content] %>
+      <a href="<%= article_path(article) %>" class="read-more">Leer más</a>
+    <% end %>
+  </p>
+  <p>
+    <%= button_to "Show this article", article_path(article), method: :get, class: "btn btn-primary" %>
+  </p>
+</div>

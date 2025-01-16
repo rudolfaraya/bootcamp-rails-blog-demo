@@ -1,0 +1,158 @@
+/* Separador personalizado */
+  hr.my-4 {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos de los botones */
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+
+  .button-group {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: flex-start; /* Alinea los botones al inicio (puedes cambiarlo a center o space-between si lo necesitas) */
+  }
+  
+  .button-group .btn {
+    flex-shrink: 0; /* Evita que los botones se reduzcan si no hay espacio suficiente */
+  }
+  
+
+  /* Estilos para el artículo */
+  .article-container {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    padding: 10px; /* Reducir el espacio interno */
+    margin-bottom: 15px; /* Reducir el espacio entre los artículos */
+    border-radius: 5px; /* Bordes menos redondeados */
+    background-color: #1f1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más pequeña */
+    transition: all 0.15s ease-in-out;
+  }
+  
+  .article-container:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el mouse */
+    background-color: #585757;
+    transform: scale(1.02);
+  }
+
+  .article-content {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    line-height: 1.4; /* Espaciado entre líneas más compacto */
+    overflow: hidden; /* Ocultar contenido desbordado */
+    text-overflow: ellipsis; /* Agregar puntos suspensivos para el contenido desbordado */
+    display: -webkit-box; /* Mostrar solo un número limitado de líneas */
+    -webkit-box-orient: vertical;
+    /*-webkit-line-clamp: 3; /* Mostrar máximo 3 líneas */
+  }
+
+  .article-title {
+    font-size: 16px; /* Tamaño de fuente del título */
+    font-weight: bold;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Mostrar el título en una sola línea */
+  }
+
+  /* Botones para expandir el contenido */
+  .article-container .read-more {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #007bff;
+    cursor: pointer;
+  }
+
+  /* Estilos para los comentarios */
+  .comments-container {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    border: 1px solid #e0e0e0; /* borde suave */
+    padding: 15px;
+    margin-bottom: 10px; /* espacio entre comentarios */
+    border-radius: 8px; /* bordes redondeados */
+    background-color: #201f1f; /* fondo suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra sutil */
+    font-size: 14px; /* Disminuye el tamaño de la fuente en los comentarios */
+    line-height: 1.4; /* Ajusta el espacio entre líneas para mejorar la legibilidad */
+  }
+
+  .comment p {
+    margin-bottom: 10px; /* Espacio entre los párrafos dentro del comentario */
+  }
+  
+  .comment:hover {
+    border-color: #007bff; /* color de borde cuando el comentario está en hover */
+    background-color: #3b3939; /* fondo ligeramente más claro */
+  }
+
+  .status-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  
+  .status-draft {
+    background-color: #ffc107; /* Amarillo */
+  }
+  
+  .status-published {
+    background-color: #28a745; /* Verde */
+  }
+
+  .btn-disabled {
+    background-color: #d3d3d3; /* Gris claro */
+    color: #a1a1a1; /* Gris más oscuro para el texto */
+    pointer-events: none; /* Desactiva el botón para que no se pueda hacer clic */
+  }
+  
