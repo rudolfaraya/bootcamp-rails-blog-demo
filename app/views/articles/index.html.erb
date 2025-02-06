@@ -1,9 +1,20 @@
 <% content_for :title, "Articles" %>
 
 <h1>Articles</h1>
-
 <div id="articles">
-  <%= render partial: "articles/article", collection: @articles, as: :article, locals: { truncate_content: true } %>
-</div>
+  <%= form_with url: articles_path, method: :get, data: { turbo_frame: "articles" } do %>
+    <div class="mb-3">
+      <%= label_tag :query, "Buscar:" %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Buscar artículos..." %>
+    </div>
+    <%= submit_tag "Buscar", class: "btn btn-secondary" %>
+  <% end %>
 
-<%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>
+
+  <turbo-frame id="articles">
+    <%= render partial: "articles/article", collection: @articles, as: :article, locals: { truncate_content: true } %>
+  </turbo-frame>
+
+  <%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>
+</div>

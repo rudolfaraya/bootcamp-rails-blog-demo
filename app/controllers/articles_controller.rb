@@ -7,6 +7,15 @@ class ArticlesController < ApplicationController
   def index
     # @articles = Article.all.order(created_at: :desc)
     @articles = policy_scope(Article).order(created_at: :desc) # Aplica la política de visibilidad
+
+    # Si se envía un parámetro de búsqueda, filtramos por título o cuerpo
+    if params[:query].present?
+      query = "%#{params[:query]}%"
+      @articles = @articles.where("title LIKE ?", query)
+      # articles = articles.where("title LIKE ? OR body LIKE ?", query, query)
+    end
+
+    @articles = @articles.order(created_at: :desc)
   end
 
   # GET /articles/1 or /articles/1.json
