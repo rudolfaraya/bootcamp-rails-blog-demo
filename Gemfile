@@ -73,3 +73,5 @@ gem "mission_control-jobs", "~> 1.0"
 gem "faker", "~> 3.5"
 
 gem "devise-i18n", "~> 1.12"
+
+gem "kaminari", "~> 1.2"

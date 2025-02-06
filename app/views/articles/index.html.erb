@@ -1,20 +1,34 @@
 <% content_for :title, "Articles" %>
 
 <h1>Articles</h1>
-<div id="articles">
-  <%= form_with url: articles_path, method: :get, data: { turbo_frame: "articles" } do %>
-    <div class="mb-3">
-      <%= label_tag :query, "Buscar:" %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Buscar artículos..." %>
-    </div>
-    <%= submit_tag "Buscar", class: "btn btn-secondary" %>
+
+<%= form_with url: articles_path, method: :get, data: { turbo_frame: "articles" } do %>
+  <div class="mb-3">
+    <%= label_tag :query, "Buscar:" %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Buscar artículos..." %>
+  </div>
+  <%= submit_tag "Buscar", class: "btn btn-secondary" %>
+<% end %>
+
+<turbo-frame id="articles">
+  <%= render partial: "articles/article", collection: @articles, as: :article, locals: { truncate_content: true } %>
+
+  <!-- Enlaces de paginación -->
+  <div class="pagination-container">
+    <%= paginate @articles %>
+  </div>
+
+  <!-- Información de la paginación -->
+  <% if @articles.any? %>
+    <%# Calculamos el primer y último índice de la página actual %>
+    <% start_index = (@articles.current_page - 1) * @articles.limit_value + 1 %>
+    <% end_index = [start_index + @articles.limit_value - 1, @articles.total_count].min %>
+    <p class="pagination-info">
+      Mostrando <%= start_index %> - <%= end_index %> de <%= @articles.total_count %> artículos.
+    </p>
+  <% else %>
+    <p>No se encontraron artículos.</p>
   <% end %>
+</turbo-frame>
 
-  <%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>
-
-  <turbo-frame id="articles">
-    <%= render partial: "articles/article", collection: @articles, as: :article, locals: { truncate_content: true } %>
-  </turbo-frame>
-
-  <%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>
-</div>
+<%= button_to "New article", new_article_path, method: :get, class: "btn btn-primary" %>

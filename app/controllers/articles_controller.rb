@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
       # articles = articles.where("title LIKE ? OR body LIKE ?", query, query)
     end
 
-    @articles = @articles.order(created_at: :desc)
+    @articles = @articles.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   # GET /articles/1 or /articles/1.json
