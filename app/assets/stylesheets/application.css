@@ -12,3 +12,24 @@
  /* app/assets/stylesheets/application.css */
 
  /* application.css */
+
+ html, body {
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    overflow: visible !important;
+  }
+
+  main {
+    max-width: 100%;
+    min-height: calc(100vh - 100px); /* Ajusta según el tamaño del footer y navbar */
+  }
+
+  footer {
+    clear: both;
+    position: relative;
+  }
